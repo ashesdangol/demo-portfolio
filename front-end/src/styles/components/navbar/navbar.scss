@@ -1,0 +1,196 @@
+
+
+.main-nav-bar{
+    background-color: #333;
+    height: 100%;
+    width: 100%;
+    @apply sticky top-0;
+    z-index: 10000;
+}
+
+.nav-wrapper{
+    position: sticky;
+    background-color: #333;
+    @apply shadow-slate-900; 
+}
+.nav{ 
+    color:#fff;
+    display: flex;
+    justify-content: space-between;
+
+    ul{
+        height: 100%;
+    }
+    li{
+        *{
+            @apply rounded-md;
+        }
+        display: flex;
+        cursor: pointer;
+        a{
+            display: flex;
+            align-items: center;
+            padding: .25rem 1rem;
+        }
+    }
+    li.active{
+        background-color: #555;
+    }
+    li:hover{
+        background-color: #777;
+    }
+    a{
+        color: inherit;
+       
+    
+    }
+}
+.site-title{
+    // font-size: $font-size;
+    font-size: 1rem;
+    max-width: 140px;
+    max-height:100px;
+    display: flex!important;
+    justify-content: left;
+    align-items: center;   
+    object-fit: contain;
+    object-position: center; 
+    width: 100%;   
+}
+.menu-burger{
+    width: 50px;
+    height:40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    cursor: pointer;
+}
+.portfolio-apps{ 
+    &-button{  
+        position: relative;
+        &:hover{
+            .portfolio-apps-container{
+                @apply visible;
+                transition: all 0.5s ease;
+                height: auto;
+                
+            }
+            .portfolio-apps-lists{
+                *{
+                    width: auto;
+                    height: auto;
+                }
+                @screen laptop{
+                    width:100%;
+                    a{
+                        width:100%;
+                    }
+                }
+                li{
+                    @apply rounded-md;
+                    &:hover{
+                        @apply bg-stone-900;
+                        @apply shadow-slate-500/50;
+                    }
+                }
+                
+            }
+        }
+    }
+    &-container{
+       position: relative;
+       width: fit-content;
+       left: 5%;
+       @apply bg-stone-800;
+       height: 0;
+    //    &::before{
+    //     position: absolute;
+    //     top: 50%;
+    //     left: -5%;
+    //     transform: translate(5%,-50%);
+    //     content:"";
+    //     @apply border-solid border-r-stone-800 border-r-8 border-y-transparent border-y-8 border-l-0;
+    // }
+        @screen laptop{
+            position: absolute;
+            bottom:0;
+            left:0;
+            transform: translate(0%,100%);
+            z-index: 100;
+            @apply mt-4;
+            width:auto;
+            &::before{
+                position: absolute;
+                top: -4%;
+                left: 15%;
+                content:"";
+                @apply border-solid border-b-stone-800 border-b-8 border-x-transparent border-x-8 border-t-0;
+            }
+           
+            
+        }
+       
+        @apply rounded-md;
+        @apply shadow-xl;
+        @apply shadow-slate-500/50;
+        
+    }
+    &-lists{
+        max-width: 100%;
+        min-width: 160px;
+       *{
+        height: 0;
+       }
+        li{
+            
+            a{
+                
+                width: 100%;
+                // height: 100%;
+                
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023.99px) {
+    .nav-wrapper{
+        &.open-menu{
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top:2%;
+            left: 0;
+            z-index: 100;
+            .nav{
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                object-fit: contain;
+                object-position: center;
+                &-lists{
+                    margin-top: 0.5rem;
+                    display: block;
+                    grid-column: span 2;
+                    ul{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        li{
+                            a{
+                                width: 100%;
+                            }
+                        }
+                    }
+                    
+                }
+                .menu-burger{
+                    justify-self: end;
+                    grid-row:-1;
+                    grid-column: 2;
+                }
+            }
+        }
+    }
+}

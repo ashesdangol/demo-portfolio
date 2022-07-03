@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    // outline: 1px dotted red;
+}
+
+
+
+body{
+    @apply bg-slate-100 pb-20;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.scroll-lock{
+    max-height: 100vh;
+    overflow: hidden;
+}
+section{
+    @apply px-2;
+    @apply py-4;
+    @screen laptop{
+        @apply px-4;
+    }
+    @screen desktop{
+        @apply px-6;
+    }
+    @screen xlDesktop{
+        @apply px-8;
+    }
+    @screen xxlDesktop{
+        @apply px-24;
+    }
+    
+}
+.container{
+    @apply mx-auto;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+h1{
+    @apply text-2xl lg:text-5xl font-bold mt-0 mb-6;
+}
+h3{
+    @apply text-3xl font-bold;
+}

@@ -1,0 +1,17 @@
+
+footer {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 3.5rem;
+    @apply bg-stone-500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+  }
+  
+  footer p {
+    color: #ccc;
+  }
