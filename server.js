@@ -12,7 +12,13 @@ const path = require('path');
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const whitelist = ['http://localhost:3000','http://localhost:8000', 'https://ashes-portfolio.herokuapp.com'];
-app.use(helmet())
+app.use(helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data:"]
+    }
+  }))
+  
 const corsOptions = {
     origin: function (origin, callback){
         console.log("**Origin of request "+ origin)
