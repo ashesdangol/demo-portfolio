@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div className="container mx-auto">
+    
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/pricing' element={<Pricing />} />
@@ -28,7 +28,7 @@ function App() {
         <Route path='/apps/weather-app' element={<WeatherApp />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
-      </div>
+      
       <Footer />
     </div>
     
