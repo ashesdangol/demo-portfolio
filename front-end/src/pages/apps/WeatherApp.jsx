@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from "react";
-import {axios} from "axios";
+import axios from "axios";
 import {Paper, TextField, Fab, Avatar, Typography} from '@mui/material'
 import ThermostatIcon from '@mui/icons-material/Thermostat';
 // import { shadows } from '@mui/system';
@@ -18,37 +18,38 @@ function WeatherApp(){
 
   const [cityName, setCityName]=useState('');
   const [countryName, setCountryName]=useState('');
-  const url ='/getWeather';
-  const getWeatherData = async() =>{
-    try{
-      await axios.get("/getWeather").then((response)=>{
-        setData(response.data)
+  const url ='/api/getWeather';
+  // const getWeatherData = async() =>{
+  //   try{
+  //     await axios.get("/getWeather").then((response)=>{
+  //       setData(response.data)
        
-      })
-    }catch(err){
-      setData("Could not find data")
-    }
+  //     })
+  //   }catch(err){
+  //     setData("Could not find data")
+  //   }
       
-  }
-  useEffect(()=>{
-    getWeatherData();
-  },[]);
+  // }
+  // useEffect(()=>{
+  //   getWeatherData();
+  // },[]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      await axios.post(url, {
+   
+    await axios.post(url,{
         cityName : cityName,
         countryName : countryName
-      }).then((response)=>{
-        setData(response.data)
-        setDataReceived(true);
-      });
-      // console.log(response.data)
-    }catch(error){
-      console.log(error.response)
-    }
-
+    })
+    .then(function(response){
+      setData(response.data);
+      setDataReceived(true);;
+      
+    })
+    .catch(function(error){
+      console.log(error)
+    })
+    
   }
   
 
