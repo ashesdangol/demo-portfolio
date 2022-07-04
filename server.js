@@ -11,7 +11,7 @@ const path = require('path');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-const whitelist = ['http://localhost:3000','http://localhost:8000'];
+const whitelist = ['http://localhost:3000','http://localhost:8000', 'https://ashes-portfolio.herokuapp.com'];
 app.use(helmet())
 const corsOptions = {
     origin: function (origin, callback){
@@ -74,6 +74,20 @@ app.post("/api/getWeather",(req,res)=>{
     })
 
 })
+
+// THIS IS NECESSARY TO SERVE REACT IN THE BROWSER ON HEROKU
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'front-end/build')));
+    // Handle React routing, return all requests to React app
+    app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, 'front-end/build', 'index.html'));
+    });
+}
+
+
+
+
 app.listen(port, ()=>{
     console.log(`server is listening on ${port}`);
 })
