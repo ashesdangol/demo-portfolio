@@ -18,7 +18,7 @@ app.use(helmet.contentSecurityPolicy({
       "img-src": ["'self'", "https: data:"]
     }
   }))
-  
+
 const corsOptions = {
     origin: function (origin, callback){
         console.log("**Origin of request "+ origin)
@@ -38,7 +38,7 @@ app.get("/api/getWeather",(req,res)=>{
 })
 app.post("/api/getWeather",(req,res)=>{
     let city = req.body.cityName;
-    let country = req.body.countryName;
+    let country = req.body.countryName.value;
     const APIKEY = process.env.APIKEY
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${APIKEY}&units=metric`
 
