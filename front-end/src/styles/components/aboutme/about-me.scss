@@ -1,0 +1,44 @@
+
+.about-me__title-wrapper{
+    position: relative;
+ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    @apply gap-5;
+}
+.about-me__subtitle{
+    width: 100%;
+    max-width: 310px;
+    font-size: 1.5rem;
+    @apply px-5;
+    @screen mdLg{
+        max-width:500px;
+        @apply px-10;
+    }
+    @screen lg{
+        max-width:100%;
+    }
+    
+}
+
+@screen lg{
+    .about-me__title-wrapper{
+       @apply max-w-screen-lg mx-auto;
+       text-align:left;
+       align-items: start;
+    }
+    .about-me__title{
+        @apply px-10;
+    }
+    .about-me__body{
+        max-width:557px;
+        @apply ml-10;
+    }
+    .about-me__img{
+        position: absolute;
+        right: 5%;
+        transform:translateX(-5%)
+    }
+}

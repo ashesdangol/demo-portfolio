@@ -42,7 +42,7 @@ function Navbar(){
         )
     }
     return(
-        <section className='main-nav-bar'>
+        <section className='main-nav-bar shadow-2xl drop-shadow-2xl'>
             <nav className={(isOpen ? "nav-wrapper open-menu":"nav-wrapper")}>
             <div className="nav container">
                 <Link to="/" className="site-title drop-shadow-xl">Ashes Dangol</Link>
