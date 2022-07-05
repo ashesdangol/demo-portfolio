@@ -8,13 +8,13 @@ function Intro(props){
     <section className="intro" id={props.id}>
         
             <div className="intro__title-wrapper">
-                <h1 className='section__title intro__title'>Hi, I am <strong>Ashes Dangol</strong></h1>
+                <h1 className='section__title intro__title'>{profilePic.message} <strong>{profilePic.name}</strong></h1>
                 <p className='section__subtitle section__subtitle--bgcolor intro__subtitle shadow-2xl'>FRONT-END DEV</p>
                 <div className='intro__image'>
                 {/* smal pic */}
-                    <CardImage className="laptop:hidden" imgSrc={profilePic.lowImageUrl} alt="my pic" />
+                    <CardImage className="laptop:hidden" imgSrc={process.env.PUBLIC_URL+profilePic.lowImageUrl} alt="my pic" />
                     {/* large pic */}
-                    <CardImage className="hidden laptop:block" imgSrc={profilePic.highImageUrl}  alt="my high quality pic"/>
+                    <CardImage className="hidden laptop:block" imgSrc={process.env.PUBLIC_URL+profilePic.highImageUrl}  alt="my high quality pic"/>
                 </div>
             </div>   
             
