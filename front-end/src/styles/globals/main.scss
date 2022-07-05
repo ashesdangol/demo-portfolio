@@ -1,15 +1,10 @@
-*{
+*,
+*::before,
+*::after{
     box-sizing: border-box;
-    // outline: 1px dotted red;
+    outline: 1px dotted red;
 }
 
-
-
-body{
-    @apply bg-slate-100 pb-20;
-    min-height: 100vh;
-    height: 100%;
-}
 
 .scroll-lock{
     max-height: 100vh;
@@ -30,8 +25,10 @@ section{
     @screen xxlDesktop{
         @apply px-24;
     }
-    
 }
+    
+    
+
 .container{
     @apply mx-auto;
 }
@@ -40,9 +37,39 @@ section{
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-h1{
-    @apply text-2xl lg:text-5xl font-bold mt-0 mb-6;
+
+@layer base{
+    h1{
+        @apply text-5xl mdLg:text-7xl;
+    }
+    h2{
+        @apply text-4xl mdLg:text-6xl;
+    }
+    h3{
+        @apply text-lg mdLg:text-2xl;
+    }
+    body{
+        @apply text-base mdLg:text-lg bg-slate-100 pb-20 min-h-screen h-full font-sansPro;
+        
+    }
+    .section{
+        &__title{
+            @apply mb-5 text-5xl mdLg:text-6xl;
+            strong{
+                @apply block;
+            }
+        }
+        &__subtitle{
+            @apply mb-5 text-2xl mdLg:text-3xl font-codePro py-3;
+            &--bgcolor{
+                @apply bg-accent_bright ;
+            }
+        }
+    }
 }
-h3{
-    @apply text-3xl font-bold;
-}
+// h1{
+//     @apply text-2xl lg:text-5xl font-bold mt-0 mb-6;
+// }
+// h3{
+//     @apply text-3xl font-bold;
+// }

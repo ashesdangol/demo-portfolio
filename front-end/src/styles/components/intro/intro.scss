@@ -1,0 +1,48 @@
+.intro{
+    @apply py-20;
+    @screen lg{
+        @apply py-40;
+       
+    }
+}
+.intro__title-wrapper{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @apply mx-auto;
+    @screen lg{
+        width:777px;
+        align-items: end;
+       
+    }
+
+    
+}
+.intro__title{
+    text-align: center;
+    @screen lg{
+        text-align: left;
+        strong{
+            @apply mt-5;
+        }
+    }
+}
+.intro__subtitle{
+    width: 100%;
+    text-align: center;
+    @screen lg{
+        text-align: right;
+        padding-right:16%;
+    }
+}
+.intro__image{
+    @screen lg{
+        position: absolute;
+        left: 12%;
+        transform: translateX(-12%);
+    }
+   
+}
