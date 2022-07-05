@@ -1,26 +1,26 @@
 import React from 'react';
+import CardText from './global-components/CardText';
+import iDo from '../datas/iDo';
+
+console.log(iDo);
+function createCardText(whatido){
+    return(
+        <CardText 
+        id={whatido.id}
+        key={whatido.id}
+        title={whatido.title}
+        content={whatido.content}
+    />
+    );
+    
+}
 
 function Services(props){
     return(
-  
         <section className="services" id={props.id}>   
              <h2 className='secttion__title secttion__title--services'>What I do</h2>
              <div className="servicess">
-                <div className="service">
-                    <h3>UI Development</h3>
-                    <p>sdsads</p>
-                </div>
-
-                <div className="service">
-                    <h3>E-Commerce</h3>
-                    <p>asdsad</p>
-                </div>
-
-                <div className="service">
-                    <h3>WordPress</h3>
-                    <p>asdads</p>
-                </div>
-
+                {iDo.map(createCardText)}
                 <a href="#" className='btn'>See my work</a>
              </div>  
              

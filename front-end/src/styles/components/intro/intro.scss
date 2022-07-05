@@ -1,5 +1,5 @@
 .intro{
-    @apply py-20;
+    @apply py-12;
     @screen lg{
         @apply py-40;
        
@@ -25,8 +25,11 @@
     text-align: center;
     @screen lg{
         text-align: left;
-        strong{
-            @apply mt-5;
+    }
+    strong{
+        @apply mt-3;
+        @screen lg{
+            @apply mt-3;
         }
     }
 }
