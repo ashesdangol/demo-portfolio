@@ -16,7 +16,9 @@ function Navbar(){
     }
     // close burger menu when menu item is clicked
     function handleMenuClick(){
-        handleBurger()
+        if(isOpen){
+            handleBurger();
+        }
     }
   
     // lock body when menu is isopened

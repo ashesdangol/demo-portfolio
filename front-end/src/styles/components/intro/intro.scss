@@ -23,11 +23,13 @@
 }
 .intro__title{
     text-align: center;
+    @apply font-light;
     @screen lg{
         text-align: left;
     }
     strong{
         @apply mt-3;
+        @apply font-bold;
         @screen lg{
             @apply mt-3;
         }

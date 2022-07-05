@@ -1,0 +1,40 @@
+.services{
+    @apply bg-dark;
+    background-image: url('../../../../public/assets/images/christopher-gower-m_HRfLhgABo-unsplash.png');
+    background-size: cover;
+    background-blend-mode: multiply;
+    text-align: center;
+    &__title{
+        text-align: center;
+        &::after{
+            content: "";
+            display: flex;
+            border: 1px solid white;
+            width: 95px;
+            height: 1px;
+            @apply mx-auto mt-12;
+        }
+    }
+}
+
+.service__wrapper{
+    text-align: center;
+    @apply py-12 mx-auto max-w-screen-xlDesktop;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @apply gap-10;
+    @screen smTablet{
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap:wrap;
+    }
+
+}
+
+.service{
+  
+    max-width: 310px;
+    width: 100%;
+    
+}

@@ -8,10 +8,18 @@
 .scroll-lock{
     max-height: 100vh;
     overflow: hidden;
+    @screen lg{
+        max-height: auto;
+        overflow: auto;
+    }
 }
 section{
     @apply px-2;
-    @apply py-4;
+    @apply py-12;
+    @screen lg{
+        @apply py-20;
+       
+    }
     @screen laptop{
         @apply px-4;
     }
@@ -39,13 +47,13 @@ section{
 
 @layer base{
     h1{
-        @apply text-5xl mdLg:text-7xl;
+        @apply text-5xl mdLg:text-7xl font-bold;
     }
     h2{
-        @apply text-4xl mdLg:text-6xl;
+        @apply text-4xl mdLg:text-6xl font-bold;
     }
     h3{
-        @apply text-lg mdLg:text-2xl;
+        @apply text-lg mdLg:text-2xl font-bold;
     }
     body{
         @apply text-base mdLg:text-lg bg-slate-100 pb-20 min-h-screen h-full font-sansPro;
@@ -53,13 +61,13 @@ section{
     }
     .section{
         &__title{
-            @apply mb-5 text-5xl mdLg:text-6xl;
+            @apply mb-5 text-5xl mdLg:text-6xl font-bold;
             strong{
                 @apply block;
             }
         }
         &__subtitle{
-            @apply mb-5 text-2xl mdLg:text-3xl font-codePro py-3;
+            @apply mb-5 text-2xl mdLg:text-3xl font-codePro py-3 font-bold;
             &--bgcolor{
                 @apply bg-accent_bright ;
             }

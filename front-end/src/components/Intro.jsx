@@ -9,7 +9,7 @@ function Intro(props){
         
             <div className="intro__title-wrapper">
                 <h1 className='section__title intro__title'>Hi, I am <strong>Ashes Dangol</strong></h1>
-                <p className='section__subtitle section__subtitle--bgcolor intro__subtitle'>FRONT-END DEV</p>
+                <p className='section__subtitle section__subtitle--bgcolor intro__subtitle shadow-2xl'>FRONT-END DEV</p>
                 <div className='intro__image'>
                 {/* smal pic */}
                     <CardImage className="laptop:hidden" imgSrc={profilePic.lowImageUrl} alt="my pic" />
