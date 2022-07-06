@@ -37,7 +37,7 @@ function ToDoList(){
       <section className='flex justify-center py-10'>
           <Paper elevation={24} className="to-do-list p-4 w-full smTablet:w-[600px]" >
               <div className="heading my-6 text-center">
-                  <h1>To-Do List</h1>
+                  <h2>To-Do List</h2>
               </div>
               <div className="form form-style-1">
                   <TextField className="block w-[95%]" onChange={handleChange} id="outlined-basic" label="Enter your list"  value={inputText} />

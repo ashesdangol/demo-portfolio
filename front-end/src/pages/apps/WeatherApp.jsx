@@ -50,7 +50,7 @@ function WeatherApp(){
 
   return(
     <Paper className="paper-style">
-        <h1 className="text-center">Current Weather</h1>
+        <h2 className="text-center">Current Weather</h2>
        
         
         <form className="form-style-1">

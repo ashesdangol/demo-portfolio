@@ -22,7 +22,7 @@ function NoteKeeper(){
   return (
     <section className="note-keeper flex flex-col justify-center content-center">
       <div className="heading my-6 text-center">
-          <h1>Note Keeper</h1>
+          <h2>Note Keeper</h2>
       </div>
       
       <CreateArea onAdd={addNote} />

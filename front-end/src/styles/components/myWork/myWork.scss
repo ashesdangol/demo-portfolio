@@ -1,0 +1,14 @@
+.my-work{
+    @apply bg-dark;
+    text-align: center;
+ 
+    &__title{
+        color: #fff;
+    }
+    &__subtitle{
+        @apply text-accent_bright font-sansPro;
+    }
+}
+.portfolio{
+    @apply mt-10 lg:mt-20 flex flex-wrap justify-center max-w-screen-lg mx-auto gap-5 lg:gap-10;
+}

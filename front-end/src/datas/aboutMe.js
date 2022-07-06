@@ -1,5 +1,5 @@
 
-const imageUrl ="Profile3.jpg";
+const imageUrl ="profile3.jpg";
 
 
 const aboutMe = 

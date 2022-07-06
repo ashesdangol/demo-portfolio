@@ -1,21 +1,35 @@
 import React from 'react';
 import CardImageHover from './global-components/CardImageHover';
+import work from '../datas/work';
+
+
+
+
+
+
+function createCardImage(card){
+    return(<CardImageHover 
+    id={work.id}
+    key={Math.floor(Math.random() * Date.now())}
+    imgSrc={ "/assets/images/"+card.workImage}
+    alt="work"
+    loading="lazy"
+    className="work"
+    /> );
+}
+
 
 function MyWork(props){
+    
     return(
  
-    <section className="about-me" id={props.id}>   
-        <h2 className='section__title section__title--my-work'>My Work</h2>
-        <p className='section__subtitle section__title--subtitle-my-work'>asdsdV</p>
-        <div className="portfolio flex flex-wrap justify-center max-w-screen-lg mx-auto gap-2">
+    <section className="my-work" id={props.id}>   
+        <h2 className='section__title my-work__title'>My Work</h2>
+        <p className='section__subtitle my-work__subtitle'>A selection of my range of work</p>
+        <div className="portfolio ">
+        {work.map(createCardImage)}
             {/* <a href="" className='portfolio__item'></a> */}
-            <CardImageHover imgSrc="/assets/images/Rectangle3-1.png"  alt="work"/>
-            <CardImageHover imgSrc="/assets/images/Rectangle3-1.png"  alt="work"/>
-            <CardImageHover imgSrc="/assets/images/Rectangle3-1.png"  alt="work"/>
-            <CardImageHover imgSrc="/assets/images/Rectangle3-1.png"  alt="work"/>
-            <CardImageHover imgSrc="/assets/images/Rectangle3-1.png"  alt="work"/>
-            <CardImageHover imgSrc="/assets/images/Rectangle3-1.png"  alt="work"/>
-            <CardImageHover imgSrc="/assets/images/Rectangle3-1.png"  alt="work"/>
+            
             {/* <img src="/assets/images/eduardo__2x.png" className='portfolio__img' alt="my portfolio" /> */}
             
         </div>
