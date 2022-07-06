@@ -1,6 +1,6 @@
 
-const higImage ="eduardo.png"
-const lowImage="eduardo.png"
+const higImage ="profile2.jpg"
+const lowImage="profile1.jpg"
 
 const profilePic = 
     {
