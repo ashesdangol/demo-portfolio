@@ -52,8 +52,8 @@ function RandomApi(){
       }
 
     return(
-        <section className='flex flex-col items-center justify-center'>
-            <h1 className='section__title mb-10'>Current BTC Price</h1>
+        <section className='flex flex-col items-center justify-center pb-20'>
+            <h1 className='section__title mb-10 text-center flex justify-center'>Current BTC Price</h1>
             <div sx={{width: 300,height: 300}} className="my-10 crypto-card flex flex-col items-center justify-start gap-5 pt-6 shadow-2xl shadow-indigo-500/50  bg-gradient-to-r from-rose-100 to-teal-100 w-[249px] h-[249px] mdLg:w-[313px] mdLg:h-[313px]">
             <h3 className='crypto-card__Title'>Track Bitcoin price</h3>
             
