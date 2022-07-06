@@ -33,6 +33,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
 app.get("/api/getWeather",(req,res)=>{
     res.send("This request does not exit");
 })
