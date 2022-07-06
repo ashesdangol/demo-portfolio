@@ -92,7 +92,56 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
+// Btc Tracker
 
+app.post("/api/trackBtc", (req,res)=>{
+    let currency = req.body.currency;
+    // console.dir(currency);
+    const url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+    https.get(url, function(response){
+        if(response.statusCode !== 200){
+            const btcInfo= {
+                message:"error "+response.statusCode
+        
+            }
+            res.send(btcInfo)
+        }else{
+            response.on("data", function(data){
+                const btcInfo=JSON.parse(data);
+                const currencyApi = btcInfo.bpi;
+                if(currencyApi.USD.code === currency){
+                     const cryptoData = {
+                        rate:currencyApi.USD.rate,
+                        symbol :currencyApi.USD.symbol
+                     }
+                     res.send(cryptoData);
+                     
+                    
+                }else if(currencyApi.EUR.code === currency){
+                    const cryptoData={
+                        rate:currencyApi.EUR.rate,
+                        symbol :currencyApi.EUR.symbol
+                        
+                    }
+                    res.send(cryptoData);
+                     
+                   
+                }else if(currencyApi.GBP.code === currency){
+                    const cryptoData={
+                        rate:currencyApi.GBP.rate,
+                        symbol :currencyApi.GBP.symbol
+                    }
+                    res.send(cryptoData);
+                     
+                   
+                }
+              
+               
+            })
+        }
+    })
+
+})
 
 
 app.listen(port, ()=>{

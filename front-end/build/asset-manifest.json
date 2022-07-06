@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.59c32b21.css",
-    "main.js": "/static/js/main.a70b5f0e.js",
+    "main.css": "/static/css/main.9bce99c0.css",
+    "main.js": "/static/js/main.a4877767.js",
     "static/media/christopher-gower-m_HRfLhgABo-unsplash.png": "/static/media/christopher-gower-m_HRfLhgABo-unsplash.dc25456cc867a4518213.png",
     "index.html": "/index.html",
-    "main.59c32b21.css.map": "/static/css/main.59c32b21.css.map",
-    "main.a70b5f0e.js.map": "/static/js/main.a70b5f0e.js.map"
+    "main.9bce99c0.css.map": "/static/css/main.9bce99c0.css.map",
+    "main.a4877767.js.map": "/static/js/main.a4877767.js.map"
   },
   "entrypoints": [
-    "static/css/main.59c32b21.css",
-    "static/js/main.a70b5f0e.js"
+    "static/css/main.9bce99c0.css",
+    "static/js/main.a4877767.js"
   ]
 }
