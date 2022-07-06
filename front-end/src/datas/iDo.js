@@ -1,33 +1,33 @@
 const iDo = [
     {
       id: 1,
-      title: "Design + Development",
-      content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      title: "Translate Design To Code",
+      content:"Create a fully functional website or app based on Figma and Adobe XD Designs"
     },
     {
         id: 2,
-        title: "E-Commerce",
-        content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        title: "React Js",
+        content:"Create a whole bunch of different components. Define styling and functionality of those component to build a scalable website or web apps."
       },
       {
         id: 3,
-        title: "E-Commerce",
-        content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        title: "Tailwind",
+        content:"An incredible CSS Framework that allows to build extremly flexible styling for all kinds of component"
       },
       {
         id: 4,
-        title: "Design + Development",
-        content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        title: "Node JS & Express",
+        content:"Liberate Javascript out of the browser and create backend using Javascript to build a server"
       },
       {
           id: 5,
-          title: "E-Commerce",
-          content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          title: "APIs",
+          content:"Use Data Service to tap into the data you need and implement it in your Web App or Web Site"
         },
         {
           id: 6,
-          title: "E-Commerce",
-          content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          title: "Deploy your website",
+          content:"Deploy your website online in paid hosting services or free services such as Github, Netlify and Heroku"
         },
   ];
   

@@ -3,32 +3,32 @@
 const work = [
     {
         id:11,
-        workImage:"Rectangle3-1.png",
+        workImage:"home.png",
         
       },
       {
         id:22,
-        workImage:"Rectangle3-1.png",
+        workImage:"orphan.png",
         
       },
       {
         id:33,
-        workImage:"Rectangle3-1.png",
+        workImage:"gallery.png",
         
       },
       {
         id:44,
-        workImage:"Rectangle3-1.png",
+        workImage:"weather.png",
         
       },
       {
         id:55,
-        workImage:"Rectangle3-1.png",
+        workImage:"mail.png",
         
       },
       {
         id:66,
-        workImage:"Rectangle3-1.png",
+        workImage:"orphan2.png",
         
       }
 ]

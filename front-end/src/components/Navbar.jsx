@@ -16,9 +16,7 @@ function Navbar(){
     }
     // close burger menu when menu item is clicked
     function handleMenuClick(){
-        if(isOpen){
-            handleBurger();
-        }
+        handleBurger()
     }
   
     // lock body when menu is isopened
@@ -42,14 +40,14 @@ function Navbar(){
         )
     }
     return(
-        <section className='main-nav-bar shadow-2xl drop-shadow-2xl'>
+        <section className='main-nav-bar'>
             <nav className={(isOpen ? "nav-wrapper open-menu":"nav-wrapper")}>
             <div className="nav container">
                 <Link to="/" className="site-title drop-shadow-xl">Ashes Dangol</Link>
                 <div className='nav-lists hidden laptop:block'>
                     <ul className='flex gap-2'>
                         <CustomLink to="/">Home</CustomLink>
-                        <CustomLink to="/pricing">Pricing</CustomLink>
+                        
                         <div className='portfolio-apps-button'>
                             <CustomLink to="/apps" className="">Apps</CustomLink>
                             <div className='portfolio-apps-container invisible'>
@@ -66,8 +64,8 @@ function Navbar(){
                                 </ul>
                             </div>
                         </div>
-                        
-                        <CustomLink to="/contact">Contact</CustomLink>
+                        <CustomLink to="/pricing">Dummy nav 1</CustomLink>
+                        <CustomLink to="/contact">Dummy nav 2</CustomLink>
                     </ul>
                 </div>
                 

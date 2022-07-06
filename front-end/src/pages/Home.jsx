@@ -1,5 +1,4 @@
 import React from 'react';
-import Banner from '../components/Banner';
 import Intro from '../components/Intro';
 import Services from '../components/Services';
 import AboutMe from '../components/AboutMe';
@@ -16,7 +15,7 @@ function Home(){
         <AboutMe />
         <MyWork />
         <RandomApi />
-        <Banner />
+        
     </div>
     );
 }
