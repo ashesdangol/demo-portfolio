@@ -39,7 +39,7 @@ function RandomApi(){
         }
         )
         .then(function(response){
-            console.log(response)
+            // console.log(response)
             setBtc(response.data)
             
           
@@ -53,11 +53,11 @@ function RandomApi(){
 
     return(
         <section className='flex flex-col items-center justify-center pb-20'>
-            <h1 className='section__title mb-10 text-center flex justify-center'>Current BTC Price</h1>
-            <div sx={{width: 300,height: 300}} className="my-10 crypto-card flex flex-col items-center justify-start gap-5 pt-6 shadow-2xl shadow-indigo-500/50  bg-gradient-to-r from-rose-100 to-teal-100 w-[249px] h-[249px] mdLg:w-[313px] mdLg:h-[313px]">
+            <h1 className='section__title mb-10 text-center flex justify-center'>Live BTC Price</h1>
+            <div  className="my-10 crypto-card flex flex-col items-center justify-evenly gap-4 lg:gap-5 pt-6 shadow-2xl shadow-indigo-500/50  bg-gradient-to-r from-rose-100 to-teal-100 w-[249px] h-[290px] mdLg:w-[313px] mdLg:h-[313px]" onClick={handleSubmit}>
             <h3 className='crypto-card__Title'>Track Bitcoin price</h3>
             
-            <Fab className="crypto-card__icon" size="large" color="warning" aria-label="delete" onClick={handleSubmit}>
+            <Fab className="crypto-card__icon" variant="circular" size="large" color="warning" aria-label="icone">
                 <CurrencyBitcoinIcon fontSize='large'/>
             </Fab>
             <h3 className='font-codePro'><span>{decodedString}</span> {btc.rate}</h3>
@@ -75,7 +75,7 @@ function RandomApi(){
                         <MenuItem value={'EUR'}>EUR</MenuItem>
                         <MenuItem value={'GBP'}>GBP</MenuItem>
                     </Select>
-                    <Fab className="addButton absolute bottom-5 left-32 animate-bounce hover:animate-spin" size="small" color="primary" aria-label="delete" onClick={handleSubmit} >
+                    <Fab className="addButton absolute bottom-5 left-32 animate-bounce lg:animate-none lg:hover:animate-spin" size="small" color="primary" aria-label="delete" onClick={handleSubmit} >
                         <CurrencyExchangeIcon />
                     </Fab>
                 </FormControl>
