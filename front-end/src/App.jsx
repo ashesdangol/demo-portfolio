@@ -17,7 +17,7 @@ import WeatherApp from "./pages/apps/WeatherApp";
 function App() {
   return (
     <div>
-      <Navbar />  
+      <Navbar />
     
       <Routes>
         <Route path='/' element={<Home />} />
