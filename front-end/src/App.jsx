@@ -5,7 +5,7 @@ import {Routes, Route} from "react-router-dom"
 import Navbar from './components/Navbar';
 import Footer from "./components/Footer";
 import Home from './pages/Home';
-import Pricing from './pages/Pricing';
+import News from './pages/News';
 import WebApps from './pages/WebApps';
 import Contact from './pages/Contact';
 import ToDoList from "./pages/apps/ToDoList";
@@ -17,11 +17,11 @@ import WeatherApp from "./pages/apps/WeatherApp";
 function App() {
   return (
     <div>
-      <Navbar />
+      <Navbar />  
     
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/pricing' element={<Pricing />} />
+        <Route path='/news' element={<News />} />
         <Route path='/apps' element={<WebApps />} />
         <Route path='/apps/to-do-list' element={<ToDoList />} />
         <Route path='/apps/note-keeper' element={<NoteKeeper />} />

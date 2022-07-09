@@ -64,7 +64,7 @@ function Navbar(){
                                 </ul>
                             </div>
                         </div>
-                        <CustomLink to="/pricing">Dummy nav 1</CustomLink>
+                        <CustomLink to="/news">News</CustomLink>
                         <CustomLink to="/contact">Dummy nav 2</CustomLink>
                     </ul>
                 </div>
