@@ -8,6 +8,7 @@ const app = express();
 const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
+const axios = require('axios');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -82,15 +83,7 @@ app.post("/api/getWeather",(req,res)=>{
 
 })
 
-// THIS IS NECESSARY TO SERVE REACT IN THE BROWSER ON HEROKU
-if (process.env.NODE_ENV === 'production') {
-    // Serve any static files
-    app.use(express.static(path.join(__dirname, 'front-end/build')));
-    // Handle React routing, return all requests to React app
-    app.get('*', function(req, res) {
-        res.sendFile(path.join(__dirname, 'front-end/build', 'index.html'));
-    });
-}
+
 
 // Btc Tracker
 
@@ -159,6 +152,36 @@ app.post("/api/trackBtc", (req,res)=>{
     }
 
 })
+
+app.get("/api/news",async (req,res)=>{
+    const url = "https://techcrunch.com/wp-json/wp/v2/posts?per_page=50&context=embed";
+    const receivedData = await axios.get(url);
+    // const dd = rd.map()
+    // console.log(rd.data[0].id)
+    const receivedNews = receivedData.data.map((news)=>{
+        return {
+            title:news.title.rendered,
+            excerpt:news.excerpt.rendered,
+            imageUrl:news.jetpack_featured_media_url,
+            postDate:news.date
+        }
+
+    })
+   res.send(receivedNews)
+   res.end();
+   
+})
+
+
+// THIS IS NECESSARY TO SERVE REACT IN THE BROWSER ON HEROKU
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'front-end/build')));
+    // Handle React routing, return all requests to React app
+    app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, 'front-end/build', 'index.html'));
+    });
+}
 
 
 app.listen(port, ()=>{

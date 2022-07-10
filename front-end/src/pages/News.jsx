@@ -1,37 +1,61 @@
-import React from 'react';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import React,{useState, useEffect} from 'react';
+import axios from "axios";
+import NewsCard from '../components/global-components/NewsCard';
+import Button from '@mui/material/Button';
 
 
+function createCard(news){
+    const dated = news.postDate;
+
+    const strToDecode ={
+        title:news.title,
+        content:news.excerpt
+    };
+    
+    const d = new Date(dated);
+    const month = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    const fullmonth= month[d.getMonth()];
+    const day = d.getUTCDate();
+    const year = d.getUTCFullYear();
+    const parser = new DOMParser();
+    const decodedTitle = parser.parseFromString(`<!doctype html><body>${strToDecode.title}`, 'text/html').body.textContent;
+    const decodedContent = parser.parseFromString(`<!doctype html><body>${strToDecode.content}`, 'text/html').body.textContent;
 
 
-function News(){
     return(
-        <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-                    component="img"
-                    height="194"
-                    image="/static/images/cards/paella.jpg"
-                    alt="Paella dish"
-            />
-            <CardHeader
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
-            />
+        <NewsCard key={Math.floor(Math.random() * Date.now())} title={decodedTitle} image={news.imageUrl} subheader={ fullmonth + " " + day + " " + year } content={decodedContent}/>
+    )
+}
+function News(){
+    const [newsContents, setNewsContents] = useState([]);
+    const [visible, setVisible] = useState(8);
+   
+    useEffect(()=>{
+        axios.get("/api/news").then(function(response){
+            setNewsContents(response.data)
+        }).catch((error)=>{
+            console.log(error)
+        })
+    },[])
+    
+    const loadMore = () =>{
+        setVisible(visible + 4)
+    }
+    // console.log(rd)
+    return(
+    <section className='flex flex-col items-center justify-center gap-10'>
+        <h1 className='section__title text-center w-full'>News From Tech Crunch </h1>
+        <div className="flex justify-center flex-wrap gap-5 container">
+            {newsContents.slice(0,visible).map(createCard)}
+        </div>
+       
+        {visible < newsContents.length &&(
+            <Button onClick={loadMore} variant="contained" size="large">Load More</Button>
             
-            <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                This impressive paella is a perfect party dish and a fun meal to cook
-                together with your guests. Add 1 cup of frozen peas along with the mussels,
-                if you like.
-                </Typography>
-            </CardContent>
-            
-            </Card>
-    );
+        )}
+       
+    </section>);
+
 }
 
 export default News;
