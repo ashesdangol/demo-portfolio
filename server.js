@@ -37,6 +37,7 @@ app.use(cors(corsOptions));
 
 app.get("/api/getWeather",(req,res)=>{
     res.send("This request does not exit");
+    res.end();
 })
 app.post("/api/getWeather",(req,res)=>{
     let city = req.body.cityName;
@@ -53,7 +54,8 @@ app.post("/api/getWeather",(req,res)=>{
                 weatherDescription:"Description not found"
         
             }
-            res.send(myweather)
+            res.send(myweather);
+            res.end();
         }else{
             response.on("data", function(data){
                 const weatherData = JSON.parse(data)
@@ -76,6 +78,7 @@ app.post("/api/getWeather",(req,res)=>{
                 }
                 
                 res.send(myweather);
+                res.end();
             
             })
         }
@@ -97,7 +100,8 @@ app.post("/api/trackBtc", (req,res)=>{
                     message:"error "+response.statusCode
             
                 }
-                res.send(btcInfo)
+                res.send(btcInfo);
+                res.end();
             }else{
                 response.on("data", function(data){
                     const btcInfo=JSON.parse(data);
@@ -117,6 +121,7 @@ app.post("/api/trackBtc", (req,res)=>{
                         }
                     });
                     res.send(cryptoData);
+                    res.end();
                 
                     // if(currencyApi.USD.code === currency){
                     //      const cryptoData = {
