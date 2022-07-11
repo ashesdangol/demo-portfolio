@@ -9,16 +9,30 @@ const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
 const axios = require('axios');
+const session = require('express-session');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const whitelist = ['http://localhost:3000','http://localhost:8000', 'https://ashes-portfolio.herokuapp.com'];
+const sessionConfig = {
+    secret: 'MYSECRET',
+    name: 'ashes-portfolio',
+    resave: false,
+    saveUninitialized: false,
+    cookie : {
+        sameSite: 'none',
+         secure: true
+    }
+  };
+  app.use(session(sessionConfig))
 app.use(helmet.contentSecurityPolicy({
     useDefaults: true,
     directives: {
       "img-src": ["'self'", "https: data:"]
     }
   }))
+
+
 
 const corsOptions = {
     origin: function (origin, callback){
@@ -168,10 +182,12 @@ app.get("/api/news",async (req,res)=>{
             title:news.title.rendered,
             excerpt:news.excerpt.rendered,
             imageUrl:news.jetpack_featured_media_url,
+            thumbnailUrl:news.parsely.meta.image.url,
             postDate:news.date
         }
 
     })
+    // res.cookie('cookieName', 'cookieValue', { sameSite: 'none', secure: true})
    res.send(receivedNews)
    res.end();
    
