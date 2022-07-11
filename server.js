@@ -10,7 +10,7 @@ const cors = require('cors');
 const path = require('path');
 const axios = require('axios');
 const session = require('express-session');
-
+app.use(helmet.hsts())
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const whitelist = ['http://localhost:3000','http://localhost:8000', 'https://ashes-portfolio.herokuapp.com'];
@@ -24,7 +24,7 @@ const sessionConfig = {
          secure: true
     }
   };
-  app.use(session(sessionConfig))
+app.use(session(sessionConfig))
 app.use(helmet.contentSecurityPolicy({
     useDefaults: true,
     directives: {
