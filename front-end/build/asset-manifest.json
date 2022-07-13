@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.d94496ee.css",
-    "main.js": "/static/js/main.f312dbcf.js",
+    "main.js": "/static/js/main.e315dc08.js",
     "static/media/christopher-gower-m_HRfLhgABo-unsplash.png": "/static/media/christopher-gower-m_HRfLhgABo-unsplash.aab9f90a88adb9c3993a.png",
     "index.html": "/index.html",
     "main.d94496ee.css.map": "/static/css/main.d94496ee.css.map",
-    "main.f312dbcf.js.map": "/static/js/main.f312dbcf.js.map"
+    "main.e315dc08.js.map": "/static/js/main.e315dc08.js.map"
   },
   "entrypoints": [
     "static/css/main.d94496ee.css",
-    "static/js/main.f312dbcf.js"
+    "static/js/main.e315dc08.js"
   ]
 }
