@@ -11,7 +11,9 @@ function createCardImage(card){
     return(<CardImageHover 
     id={work.id}
     key={Math.floor(Math.random() * Date.now())}
-    imgSrc={ "/assets/images/"+card.workImage}
+    highImageUrl={ "/assets/images/"+card.workImage}
+    mediumImageUrl={ "/assets/medium-images/"+card.workImage}
+    lowImageUrl={ "/assets/small-images/"+card.workImage}
     alt="work"
     loading="lazy"
     className="work"
