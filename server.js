@@ -9,6 +9,10 @@ const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
 const axios = require('axios');
+const fs = require("fs");
+const sharp = require('sharp'); 
+
+
 const session = require('express-session');
 app.use(helmet.hsts())
 app.use(express.urlencoded({ extended: false }));
@@ -49,10 +53,62 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+// image optimizer
+
+
+// let directory_name = 'front-end/public/assets/images';
+
+// let filenames = fs.readdirSync(directory_name);
+// filenames.forEach((file) => {
+//     const fileFormat = getExtension(file);
+//     if (fileFormat === 'svg') {
+//         console.log('svg not processed with sharp');
+//         return;
+//       }
+//       let mediumImage = sharp('./front-end/public/assets/images/' + file);
+//       let smallImage = sharp('./front-end/public/assets/images/' + file);
+//       if (fileFormat === 'jpg' || fileFormat === 'jpeg') {
+//         mediumImage = mediumImage.jpeg({ quality: 70 });
+//         smallImage = smallImage.jpeg({ quality: 50 });
+//         console.log(mediumImage + "jpeg ")
+//       } else if (fileFormat === 'png') {
+//         mediumImage = mediumImage.png({ quality: 70 });
+//         smallImage = smallImage.png({ quality: 50 });
+//         console.log(mediumImage + "png")
+//       }
+    
+//       mediumImage.toFile('./front-end/public/assets/medium-images/' + file, function (err, info) {
+//         console.log("large"+info);
+//         if (err) {
+//           console.log('error in medium-image optimization');
+//           return;
+//         }
+//       });
+//       smallImage.toFile('./front-end/public/assets/small-images/' + file, function (err, info) {
+//         console.log("small"+info);
+//         if (err) {
+//           console.log('error in medium-image optimization');
+//           return;
+//         }
+//       });
+
+    
+//   });
+  
+//   function getExtension(filename) {
+//     let ext = path.extname(filename || '').split('.');
+//     return ext[ext.length - 1];
+//   }
+
+
+
+
+// weather tracker
 app.get("/api/getWeather",(req,res)=>{
     res.send("This request does not exit");
     res.end();
 })
+// weather tracker
 app.post("/api/getWeather",(req,res)=>{
     let city = req.body.cityName;
     let country = req.body.countryName.value;
@@ -172,6 +228,7 @@ app.post("/api/trackBtc", (req,res)=>{
 
 })
 
+// tech crunch feed
 app.get("/api/news",async (req,res)=>{
     const url = "https://techcrunch.com/wp-json/wp/v2/posts?per_page=50&context=embed";
     const receivedData = await axios.get(url);

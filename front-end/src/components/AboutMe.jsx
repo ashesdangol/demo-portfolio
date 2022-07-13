@@ -12,7 +12,7 @@ function AboutMe(props){
             
             <p className='section__subtitle section__subtitle--bgcolor about-me__subtitle shadow-2xl'>{aboutMe.subtitle}</p>
 
-            <CardImageVertical imgSrc={aboutMe.imgUrl} className="about-me__img" alt="more about me" loading="lazy"/>
+            <CardImageVertical highImageUrl={aboutMe.highImageUrl} mediumImageUrl={aboutMe.mediumImageUrl} lowImageUrl={aboutMe.lowImageUrl} className="about-me__img" alt="more about me" loading="lazy"/>
             
             <div className="about-me__body">
                 <p>{aboutMe.content}</p>
