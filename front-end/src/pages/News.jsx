@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import axios from "axios";
 import NewsCard from '../components/global-components/NewsCard';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 function createCard(news){
@@ -21,7 +22,7 @@ function createCard(news){
     const decodedTitle = parser.parseFromString(`<!doctype html><body>${strToDecode.title}`, 'text/html').body.textContent;
     const decodedContent = parser.parseFromString(`<!doctype html><body>${strToDecode.content}`, 'text/html').body.textContent;
 
-
+    
     return(
         <NewsCard key={Math.floor(Math.random() * Date.now())} title={decodedTitle} image={news.imageUrl} subheader={ fullmonth + " " + day + " " + year } content={decodedContent}/>
     )
@@ -29,13 +30,32 @@ function createCard(news){
 function News(){
     const [newsContents, setNewsContents] = useState([]);
     const [visible, setVisible] = useState(8);
-   
+    const [loading, setLoading] = useState(true);
+
+    // const newsDataFunction = async () =>{
+    //     try{
+    //         await  axios.get("/api/news").then(function(response){
+    //             setNewsContents(response.data)
+    //             setLoading(false);
+    //         });
+          
+    //     }
+    //     catch(e){
+    //         console.log(e)
+    //     }
+    // }
+    // useEffect(()=>{
+    //     newsDataFunction()
+    // },[])
+
     useEffect(()=>{
         axios.get("/api/news").then(function(response){
             setNewsContents(response.data)
+            setLoading(false);
         }).catch((error)=>{
             console.log(error)
-        })
+        });
+       
     },[])
     
     const loadMore = () =>{
@@ -46,7 +66,9 @@ function News(){
     <section className='flex flex-col items-center justify-center gap-10'>
         <h1 className='section__title text-center w-full'>News From Tech Crunch </h1>
         <div className="flex justify-center flex-wrap gap-5 container">
-            {newsContents.slice(0,visible).map(createCard)}
+            {/* <CircularProgress color="secondary" />
+            {newsContents.slice(0,visible).map(createCard)} */}
+            {loading ? <CircularProgress color="secondary" /> : newsContents.slice(0,visible).map(createCard)}
         </div>
        
         {visible < newsContents.length &&(
