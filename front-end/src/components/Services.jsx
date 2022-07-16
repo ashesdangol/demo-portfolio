@@ -2,8 +2,9 @@ import React from 'react';
 import CardText from './global-components/CardText';
 import iDo from '../datas/iDo';
 import Button from '@mui/material/Button';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
-console.log(iDo);
+// console.log(iDo);
 function createCardText(whatido){
     return(
         <CardText 
@@ -18,16 +19,29 @@ function createCardText(whatido){
 // custom mui button style
 const styles = {
     "&.MuiButton-contained": {
-      color: "#333333",
       backgroundColor: '#16E0BD',
       borderColor: '#16E0BD',
+      textDecoration:"none"
+    },
+    "a":{
+      color: "#333333",
       fontFamily:'Source Sans Pro',
       fontWeight:'bold',
       '&:hover':{
-        color:"#333333",
+        color:"#fff",
       }
     }
   };
+  function CustomLink({to,children, ...props}){
+    const resolvedPath = useResolvedPath(to)
+    const isActive = useMatch({path:resolvedPath.pathname, end:true})
+   
+    return(
+        <Button  className={isActive && "active"}>
+            <Link to={to} {...props}>{children}</Link>
+        </Button>
+    )
+}
 
 function Services(props){
     return(
@@ -37,8 +51,12 @@ function Services(props){
                 {iDo.map(createCardText)}
                
              </div>
-             <Button variant="contained" size='large' sx={styles}>See my work</Button> 
-            
+             
+             <Button variant="contained" size='large' sx={styles}>
+              <CustomLink to="/contact">See my work</CustomLink>
+             </Button> 
+              
+              
         </section>
 
     )

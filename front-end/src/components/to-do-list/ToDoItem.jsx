@@ -18,12 +18,12 @@ function ToDoItem(props) {
   return (
     <div style={rowItem} className="my-6 ">
       
-      <Paper elevation={4}  className="cursor-pointer p-2 max-w-[80%]  inline-block"
+      <Paper elevation={4}  className="cursor-pointer p-2 max-w-[80%] h-[100%]"
         onClick={clickCheck}
-        style={{ textDecoration: isClicked && "line-through" }}
+        style={{ textDecoration: isClicked && "line-through", wordWrap:"break-word" }}
       >
-        {props.addItem}
-      </Paper>{" "}
+        <p>{props.addItem}</p> 
+      </Paper>
 
       <Fab size="small" color="warning" aria-label="delete" 
         onClick={() => {

@@ -11,6 +11,9 @@ const path = require('path');
 const axios = require('axios');
 const fs = require("fs");
 const sharp = require('sharp'); 
+const dbName = 'fruitsDB';
+const mongoose = require('mongoose');
+
 
 
 const session = require('express-session');
@@ -52,6 +55,10 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+// IMPORT ROUTES
+const TodoItemRoute = require('./server/routes/todoItems')
+
 
 // image optimizer
 
@@ -228,6 +235,16 @@ app.post("/api/trackBtc", (req,res)=>{
 
 })
 
+
+
+// TO DO LIST
+
+
+app.use('/', TodoItemRoute);
+
+
+
+
 // tech crunch feed
 app.get("/api/news",async (req,res)=>{
     const url = "https://techcrunch.com/wp-json/wp/v2/posts?per_page=50&context=embed";
@@ -261,6 +278,14 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
+// connection to mongodb
+mongoose.connect(process.env.mongoURL, {useNewUrlParser : true})
+.then(res => console.log(`Connection Successful ${res}`))
+.catch(err => console.log(`Connection failed ${err}`));
+
+
+// .then(() => console.log("Database Connected"))
+// .catch(err => console.log(err));
 
 app.listen(port, ()=>{
     console.log(`server is listening on ${port}`);
